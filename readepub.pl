@@ -280,7 +280,7 @@ sub ProcessSpine {
 	close(OUT);
 	open(IN, "reader.html");
 	open(OUT, ">$parsedir/reader.html");
-	print "Readercss: $readercss\n";
+#	print "Readercss: $readercss\n";
 	while(<IN>) {
 		s/~readercss~/$readercss/;
 		s/~datapath~/$parsedir/;
