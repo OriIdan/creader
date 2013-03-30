@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Helicon books online reader</title>
+    <script type="text/javascript" src="jquery.js"></script>
+	<style>
+	.col1 {
+		width:50%;
+		float:left;
+	}
+	.col2 {
+		width:49%;
+		float:left;
+	}
+	</style>
+	<script type="text/javascript">
+	$(window).resize(function() {
+		var h = $(window).height() - 20;
+		var w = $(document).width();
+		$('#reader').height(h);
+		if(w < 700) {
+			$('#meta').hide();
+			$('#reader').width('100%');
+		}
+		else {
+			$('#reader').width('50%');
+			$('#meta').show();
+		}
+	});
+	$(document).ready(function() {
+		var h = $(document).height() - 20;
+		var w = $(document).width();
+		$('#reader').height(h);
+		if(w < 700) {
+			$('#meta').hide();
+			$('#reader').width('100%');
+		}
+		else {
+			$('#reader').width('50%');
+			$('#meta').show();
+		}
+	});
+	</script>
+  </head>
+  <body>
+	<div id="reader" class="col1">
+	<iframe src="reader.html" height="100%" width="100%" frameborder="1"></iframe>
+	</div>
+	<div id="meta" class="col2">
+	Book metadata
+	</div>
+
+  </body>
+
+</html>
