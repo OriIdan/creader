@@ -9,7 +9,7 @@ if($epubname != '') {
 	$dir = $pathparts['dirname'];
 	$basename = $pathparts['filename'];
 }
-
+include("data/$basename/i18n.inc.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,6 +19,19 @@ if($epubname != '') {
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript" src="ajaxsubmit.js"></script>
     <link rel="stylesheet" type="text/css" href="bootstrap.css" />
+    <style>
+    .top {
+		background-color:#313131;
+		background-image: linear-gradient(to bottom, #313131 0%, #232323 100%);
+		color:white;
+		height:60px;
+	}
+	.top h1 {
+		margin-top:25px;
+		margin-right:30px;
+		margin-left:30px;
+	}
+    </style>
 <?PHP
 	print "<link rel=\"stylesheet\" type=\"text/css\" href=\"data/$basename/main.css\" />\n";
 ?>
@@ -88,6 +101,14 @@ if($epubname != '') {
 	
 	</div>
 	<div id="meta" class="col2">
+	<div class="top">
+	<a href="http://www.heliconbooks.com"><img src="images/logo.png" align="left" height="60"></a>
+	&nbsp;&nbsp;
+<?PHP
+	$l = _("Helicon Books cloud based reader demo");
+	print "<h2>$l</h2>\n";
+?>
+	</div>
 <?PHP
 	print file_get_contents("data/$basename/metadata.html");
 ?>

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-01 09:42+0300\n"
-"PO-Revision-Date: 2013-04-01 09:48+0200\n"
+"POT-Creation-Date: 2013-04-01 16:13+0300\n"
+"PO-Revision-Date: 2013-04-01 16:13+0200\n"
 "Last-Translator: Ori Idan <ori@helicontech.co.il>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -117,4 +117,8 @@ msgstr "כניסה"
 #: comments.php:570
 msgid "Delete comment"
 msgstr "מחיקת תגובה"
+
+#: index.php:108
+msgid "Helicon Books cloud based reader demo"
+msgstr "הליקון ספרים - קורא ספרים מקוון"
 
