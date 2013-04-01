@@ -12,7 +12,28 @@
     <link rel="stylesheet" type="text/css" href="monocole/styles/monocore.css" />
     <link rel="stylesheet" type="text/css" href="monocole/styles/monoctrl.css" />
     <link rel="stylesheet" type="text/css" href="~readercss~" />
-
+	 <style>
+    .larrow {
+    	position:relative;
+    	left:0;
+    	top:40%;
+    	z-index:100;
+    	background-image:url('images/left.png');
+    	height:110px;
+    	width:60px;
+    	float:left;
+    }
+    .rarrow {
+	    position:relative;
+    	right:0;
+    	top:40%;
+    	z-index:100;
+    	background-image:url('images/right.png');
+    	height:110px;
+    	width:60px;
+    	float:right;
+    }
+    </style>
     <script type="text/javascript" src="monocole/scripts/monocore.js"></script>
     <script type="text/javascript" src="monocole/scripts/monoctrl.js"></script>
     <script type="text/javascript" src="~datapath~/data.js"></script>
@@ -20,6 +41,7 @@
   </head>
 
   <body>
+  
     <div id="readerBg">
       <div class="board"></div>
       <div class="jacket"></div>
@@ -28,6 +50,9 @@
       <div class="dummyPage"></div>
       <div class="dummyPage"></div>
       <div class="dummyPage"></div>
+      <div class="larrow">&nbsp;</div>
+      <div class="rarrow">&nbsp;</div>
+
     </div>
 
     <div id="readerCntr">

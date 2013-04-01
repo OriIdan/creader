@@ -81,9 +81,11 @@ if($epubname != '') {
   </head>
   <body>
 	<div id="reader" class="col1">
+	
 <?PHP
 	print "<iframe src=\"reader.php?name=$basename\" height=\"100%\" width=\"100%\" frameborder=\"1\"></iframe>\n";
 ?>
+	
 	</div>
 	<div id="meta" class="col2">
 <?PHP
