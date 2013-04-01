@@ -171,15 +171,26 @@ sub opf_char {
 sub ProcessMetaData {
 	open(OUT, ">$parsedir/metadata.html");
 	binmode OUT, ":utf8";
-	if(($metadata{'language'} =~ 'he') || ($pageprogression eq 'rtl')) {
+	# Find language for i18n.inc.php
+	if($metadata{'language'} =~ /he/) {
+		$lang = 'he';
+	}
+	else {
+		$lang = 'en';
+	}
+	if(($metadata{'language'} =~ /he/) || ($pageprogression eq 'rtl')) {
 		print OUT "<div dir=\"rtl\" style=\"text-align:right\">\n";
 		$imgstyle = "style=\"width:50%;margin-left:10px\"";
 		$imgalign = "right";
+		$mainalign = "left";
+		$dir = "rtl";
 	}
 	else {
 		print OUT "<div dir=\"ltr\" style=\"text-align:left\">\n";
 		$imgstyle = "style=\"width:50%;margin-right:10px\"";
 		$imgalign = "left";
+		$mainalign = "right";
+		$dir = "ltr";
 	}
 	print OUT "<h2>$metadata{'creator'}</h2>\n";
 	print OUT "<h1>$metadata{'title'}</h1>\n";
@@ -191,6 +202,42 @@ sub ProcessMetaData {
 	print OUT $desc;
 	print OUT "\n</div>\n";
 	close(OUT);
+
+	# Create main.css for showing left justified or right justified page
+	open(OUT, ">$parsedir/main.css");
+	print OUT ".col1 {\n";
+	print OUT "    width:48%;\n";
+	print OUT "    float:$mainalign;\n";
+	print OUT "    direction:$dir;\n";
+	print OUT "    text-align:$imgalign;\n";
+	print OUT "}\n";
+	print OUT ".col2 {\n";
+	print OUT "    width:48%;\n";
+	print OUT "    float:$mainalign;\n";
+	print OUT "    margin-$mainalign:5px;\n";
+	print OUT "    direction:$dir;\n";
+	print OUT "}\n";
+	print OUT ".cdiv {\n";
+	print OUT "    margin-top:5px;\n";
+	print OUT "    border:1px solid gray;\n";
+	print OUT "    border-radius:3px;\n";
+	print OUT "    padding:3px;\n";
+	print OUT "}\n";
+	close(OUT);
+	
+	# Create updated version of i18n.inc.php
+	open(IN, "i18n.inc.php");
+	open(OUT, ">$parsedir/i18n.inc.php");
+	while(<IN>) {
+		if(/~lang~/) {
+			print OUT "\$lang=$lang;\n";
+		}
+		else {
+			print OUT $_;
+		}
+	}
+	close(OUT);
+	close(IN);
 }
 
 sub ProcessFile {
@@ -219,6 +266,7 @@ sub ProcessFile {
 			if($mathml) {
 				print OUT "<script type=\"text/javascript\" src=\"http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML\"></script>\n";
 			}
+			print OUT "<style>\n.regular: { font-family: 'Arial', 'sans serif'  !important; }\n</style>\n";
 			print OUT $_;
 		}
 		elsif(/<body(.*)>/i) {

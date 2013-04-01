@@ -1,0 +1,4 @@
+#!/bin/sh
+cd locales/he_IL/LC_MESSAGES
+msgfmt messages.po
+

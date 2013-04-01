@@ -24,25 +24,25 @@ body {
 /* from smallest and outermost to largest and innermost */
 .dummyPage {
   position: absolute;
-  left: 15px;
+  left: 12px;
   top: 20px;
   bottom: 20px;
-  right: 15px;
+  right: 6px;
   background-color: #FCF6F0;
   -webkit-box-shadow: 2px 2px 4px #754;
   -moz-box-shadow: 2px 2px 4px #754;
   box-shadow: 2px 2px 4px #754;
-  -webkit-border-top-left-radius: 26px 6px;
-  -webkit-border-bottom-left-radius: 26px 6px;
-  -moz-border-top-left-radius: 26px 6px;
-  -moz-border-bottom-left-radius: 26px 6px;
-  border-top-left-radius: 26px 6px;
-  border-bottom-left-radius: 26px 6px;
+  -webkit-border-top-right-radius: 26px 6px;
+  -webkit-border-bottom-right-radius: 26px 6px;
+  -moz-border-top-right-radius: 26px 6px;
+  -moz-border-bottom-right-radius: 26px 6px;
+  border-top-right-radius: 26px 6px;
+  border-bottom-right-radius: 26px 6px;
 }
 .dummyPage + .dummyPage {
   top: 16px;
   bottom: 16px;
-  left: 16px;
+  left: 14px;
   -webkit-box-shadow: 1px 0 2px #A99;
   -moz-box-shadow: 1px 0 2px #A99;
   box-shadow: 1px 0 2px #A99;
@@ -184,25 +184,22 @@ body {
   border-top: none;
 }
 
-
-
 /* Overrides to core elements */
 
 div.monelem_container {
   background: none;
   width: auto;
-  right:0;
   left:24px !important;
-  right:10px !important;
-  top:10px !important;
+  right:0px !important;
+  top:6px !important;
 }
 
 div.monelem_page {
   top: 6px;
-  bottom: 8px !important;
-  left: 4px !important; 
-  border-color: #CBA;
-  outline: none;
+  bottom: 6px !important;
+  left: 4px; 
+/*  border-color: #CBA; */
+  outline: none !important;
   -webkit-box-shadow: 1px 0 1px #CBA;
   -moz-box-shadow: 1px 0 1px #CBA;
   box-shadow: 1px 0 2px #CBA;
@@ -212,9 +209,10 @@ div.monelem_page {
   -moz-border-bottom-right-radius: 26px 4px;
   border-top-right-radius: 26px 4px;
   border-bottom-right-radius: 26px 4px;
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 8px 6px;
-  background-color: #FFFFFE;
+  border-top-right-radius: 26px 4px;
+  border-bottom-right-radius: 26px 4px;
+  background-color: #FCF6F0;
+/*  background-color: #FFFFFE; */
   background-image: -webkit-linear-gradient(0deg, #EDEAE8 0px, #FFFFFE 24px);
   background-image: -moz-linear-gradient(0deg, #EDEAE8 0px, #FFFFFE 24px);
   background-image: linear-gradient(90deg, #EDEAE8 0px, #FFFFFE 24px);
@@ -349,6 +347,7 @@ div.monelem_flippers_slider_wait {
   -webkit-background-size: 100%;
   -moz-background-size: 100%;
   background-size: 100%;
+  display:none;
 }
 
 div.monelem_controls_contents_container {
@@ -393,4 +392,5 @@ div.monelem_controls_stencil_container {
   width: 0;
   height: 0;
 }
+
 

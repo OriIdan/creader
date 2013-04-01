@@ -27,17 +27,17 @@ body {
   left: 0;
   top: 20px;
   bottom: 20px;
-  right: 15px;
+  right: 10px;
   background-color: #FCF6F0;
   -webkit-box-shadow: 2px 2px 4px #754;
   -moz-box-shadow: 2px 2px 4px #754;
   box-shadow: 2px 2px 4px #754;
-  -webkit-border-top-left-radius: 26px 6px;
-  -webkit-border-bottom-left-radius: 26px 6px;
-  -moz-border-top-left-radius: 26px 6px;
-  -moz-border-bottom-left-radius: 26px 6px;
-  border-top-left-radius: 26px 6px;
-  border-bottom-left-radius: 26px 6px;
+  -webkit-border-top-right-radius: 26px 6px;
+  -webkit-border-bottom-right-radius: 26px 6px;
+  -moz-border-top-right-radius: 26px 6px;
+  -moz-border-bottom-right-radius: 26px 6px;
+  border-top-right-radius: 26px 6px;
+  border-bottom-right-radius: 26px 6px;
 }
 .dummyPage + .dummyPage {
   top: 16px;

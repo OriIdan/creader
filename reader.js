@@ -1,3 +1,25 @@
+
+function loadAjax(url, mydiv) {
+	var xmlhttp;
+	
+	parent.document.getElementById(mydiv).innerHTML = '<div style="text-align:center"><img src="images/ajax-loader.gif" /></div>';
+	
+	if(window.XMLHttpRequest) {
+		xmlhttp = new XMLHttpRequest();
+	}
+	else {
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	
+	xmlhttp.onreadystatechange=function() {
+		if((xmlhttp.readyState == 4) && (xmlhttp.status == 200)) {
+			parent.document.getElementById(mydiv).innerHTML = xmlhttp.responseText;
+		}
+	}
+	xmlhttp.open("GET",url,true);
+	xmlhttp.send();
+}
+
 Monocle.DEBUG = true;
   
 (function () {
@@ -96,6 +118,10 @@ Monocle.DEBUG = true;
               var place = reader.getPlace(page);
               if (place) {
                 this.runners[page.m.pageIndex].innerHTML = place.chapterTitle();
+                var cid = place.componentId();
+                a = cid.split(/.*\/(.*)\/(.*)\./);
+                url = "comments.php?book=" + a[1] + "&chapter=" + a[2];
+                loadAjax(url, 'comments');
               }
             }
           }
